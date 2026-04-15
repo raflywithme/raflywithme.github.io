@@ -1,1 +1,2 @@
 User-agent: *
+Sitemap: https://raflywithme.my.id/sitemap.xml
