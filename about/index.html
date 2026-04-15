@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tentang Saya | Muhammad Rafli</title>
-    
+
     <script src="https://unpkg.com/feather-icons"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <meta name="description" content="Tentang Muhammad Rafli — Backend Developer. Pelajar RPL di SMK BIMA UTOMO BS (Batang Kuis). Perjalanan dari warnet hingga fokus membangun sistem dan arsitektur backend.">
+    <meta name="description"
+        content="Tentang Muhammad Rafli — Backend Developer. Pelajar RPL di SMK BIMA UTOMO BS (Batang Kuis). Perjalanan dari warnet hingga fokus membangun sistem dan arsitektur backend.">
     <meta name="keywords" content="Muhammad Rafli, Backend Developer, RPL, SMK BIMA UTOMO BS, Batang Kuis, portfolio">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://raflywithme.my.id/about/" />
@@ -15,12 +17,14 @@
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://raflywithme.my.id/about/">
     <meta property="og:title" content="Tentang Saya | Muhammad Rafli — Backend Developer">
-    <meta property="og:description" content="Profil Muhammad Rafli — Backend Developer dan pelajar RPL di SMK BIMA UTOMO BS (Batang Kuis).">
+    <meta property="og:description"
+        content="Profil Muhammad Rafli — Backend Developer dan pelajar RPL di SMK BIMA UTOMO BS (Batang Kuis).">
     <meta property="og:image" content="https://raflywithme.my.id/images/avatar.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tentang Saya | Muhammad Rafli — Backend Developer">
-    <meta name="twitter:description" content="Profil Muhammad Rafli — Backend Developer dan pelajar RPL di SMK BIMA UTOMO BS (Batang Kuis).">
+    <meta name="twitter:description"
+        content="Profil Muhammad Rafli — Backend Developer dan pelajar RPL di SMK BIMA UTOMO BS (Batang Kuis).">
     <meta name="twitter:image" content="https://raflywithme.my.id/images/avatar.png">
     <meta name="twitter:url" content="https://raflywithme.my.id/about/">
 
@@ -72,7 +76,11 @@
             --line-color: #334155;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -104,15 +112,25 @@
             height: 70px;
         }
 
-        .nav-brand { font-weight: 700; text-decoration: none; color: var(--text-color); }
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--text-color); 
-            font-size: 0.9rem; 
-            display: flex; 
-            align-items: center; 
-            gap: 5px; 
+        .nav-brand {
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .content-area {
@@ -166,79 +184,93 @@
             border-top: 1px solid var(--line-color);
         }
 
-        #theme-toggle { background: none; border: none; cursor: pointer; color: var(--text-color); }
+        #theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-color);
+        }
 
         @media (max-width: 600px) {
-            .page-title { font-size: 2rem; }
+            .page-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <div class="container">
-        <nav>
-            <div class="nav-links">
-                <a href="/"><i data-feather="home" style="width: 18px;"></i> Beranda</a>
-                <a href="/about/"><i data-feather="user" style="width: 18px;"></i> Tentang</a>
-                <button id="theme-toggle" onclick="toggleTheme()">
-                    <i id="theme-icon" data-feather="moon"></i>
-                </button>
-            </div>
-        </nav>
-    </div>
-</header>
-
-<main class="container content-area">
-    <h1 class="page-title">Tentang Saya</h1>
-
-    <div class="about-text">
-        <p>Halo! Nama saya <strong>Muhammad Rafli</strong>.</p>
-
-        <p>Saya adalah seorang individu yang memiliki antusiasme tinggi dalam dunia teknologi, khususnya dalam pengembangan perangkat lunak. Saat ini, saya sedang menempuh pendidikan di jurusan <strong>Rekayasa Perangkat Lunak (RPL)</strong> di <strong>SMK BIMA UTOMO BS</strong>, Batang Kuis.</p>
-
-        <div class="highlight-box">
-            "Perjalanan saya dimulai dari bilik warnet, dan kini saya berupaya membangun masa depan melalui baris-baris kode."
+    <header>
+        <div class="container">
+            <nav>
+                <a class="nav-brand"></a>
+                <div class="nav-links">
+                    <a href="/"><i data-feather="home" style="width: 18px;"></i> Beranda</a>
+                    <a href="/about/"><i data-feather="user" style="width: 18px;"></i> Tentang</a>
+                    <button id="theme-toggle" onclick="toggleTheme()">
+                        <i id="theme-icon" data-feather="moon"></i>
+                    </button>
+                </div>
+            </nav>
         </div>
+    </header>
 
-        <p>Ketertarikan saya pada komputer berawal sejak masa Sekolah Dasar. Seperti kebanyakan anak pada masanya, saya menghabiskan banyak waktu mengeksplorasi dunia digital melalui game di warnet dekat rumah. Namun, rasa penasaran membawa saya lebih jauh dari sekadar pemain.</p>
+    <main class="container content-area">
+        <h1 class="page-title">Tentang Saya</h1>
 
-        <p>Pada kelas 9 MTs, saya mulai mengenal dunia pemrograman. Awalnya, mimpi saya adalah menjadi seorang <strong>Game Developer</strong>. Seiring berjalannya waktu dan proses belajar di SMK, fokus saya berkembang untuk mendalami arsitektur sistem dan menjadi seorang <strong>Backend Developer</strong> yang handal.</p>
+        <div class="about-text">
+            <p>Halo! Nama saya <strong>Muhammad Rafli</strong>.</p>
 
-        <p>Bagi saya, pemrograman bukan sekadar menulis kode, tetapi tentang memecahkan masalah dan terus belajar untuk menjadi versi yang lebih baik dari hari kemarin.</p>
-    </div>
-</main>
+            <p>Saya adalah seorang individu yang memiliki antusiasme tinggi dalam dunia teknologi, khususnya dalam
+                pengembangan perangkat lunak. Saat ini, saya sedang menempuh pendidikan di jurusan <strong>Rekayasa
+                    Perangkat Lunak (RPL)</strong> di <strong>SMK BIMA UTOMO BS</strong>, Batang Kuis.</p>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2024 Muhammad Rafli • Terus Belajar, Terus Tumbuh.</p>
-    </div>
-</footer>
+            <p>Ketertarikan saya pada komputer berawal sejak masa Sekolah Dasar. Seperti kebanyakan anak pada masanya,
+                saya menghabiskan banyak waktu mengeksplorasi dunia digital melalui game di warnet dekat rumah. Namun,
+                rasa penasaran membawa saya lebih jauh dari sekadar pemain.</p>
 
-<script>
-    feather.replace();
+            <p>Pada kelas 9 MTs, saya mulai mengenal dunia pemrograman. Awalnya, mimpi saya adalah menjadi seorang
+                <strong>Game Developer</strong>. Seiring berjalannya waktu dan proses belajar di SMK, fokus saya
+                berkembang untuk mendalami arsitektur sistem dan menjadi seorang <strong>Backend Developer</strong>.
+            </p>
 
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.getElementById('theme-icon');
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'light');
-            icon.setAttribute('data-feather', 'moon');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            icon.setAttribute('data-feather', 'sun');
+            <p>Bagi saya, pemrograman bukan sekadar menulis kode, tetapi tentang memecahkan masalah dan terus belajar
+                untuk menjadi versi yang lebih baik dari hari kemarin.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Muhammad Rafli</p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                icon.setAttribute('data-feather', 'moon');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                icon.setAttribute('data-feather', 'sun');
+            }
+            feather.replace();
         }
-        feather.replace();
-    }
 
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.setAttribute('data-theme', 'dark');
-        document.getElementById('theme-icon').setAttribute('data-feather', 'sun');
-        feather.replace();
-    }
-</script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            document.getElementById('theme-icon').setAttribute('data-feather', 'sun');
+            feather.replace();
+        }
+    </script>
 
 </body>
+
 </html>
