@@ -1,177 +1,245 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="id">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tentang Saya | Muhammad Rafli</title>
+    
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Tentang Muhammad Rafli — Backend Developer. Pelajar RPL di SMK BIMA UTOMO BS (Batang Kuis). Perjalanan dari warnet hingga fokus membangun sistem dan arsitektur backend.">
+    <meta name="keywords" content="Muhammad Rafli, Backend Developer, RPL, SMK BIMA UTOMO BS, Batang Kuis, portfolio">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://raflywithme.my.id/about/" />
+
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://raflywithme.my.id/about/">
+    <meta property="og:title" content="Tentang Saya | Muhammad Rafli — Backend Developer">
+    <meta property="og:description" content="Profil Muhammad Rafli — Backend Developer dan pelajar RPL di SMK BIMA UTOMO BS (Batang Kuis).">
+    <meta property="og:image" content="https://raflywithme.my.id/images/avatar.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tentang Saya | Muhammad Rafli — Backend Developer">
+    <meta name="twitter:description" content="Profil Muhammad Rafli — Backend Developer dan pelajar RPL di SMK BIMA UTOMO BS (Batang Kuis).">
+    <meta name="twitter:image" content="https://raflywithme.my.id/images/avatar.png">
+    <meta name="twitter:url" content="https://raflywithme.my.id/about/">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "AboutPage",
+          "@id": "https://raflywithme.my.id/about/#aboutpage",
+          "url": "https://raflywithme.my.id/about/",
+          "name": "Tentang Saya | Muhammad Rafli",
+          "inLanguage": "id-ID",
+          "about": { "@id": "https://raflywithme.my.id/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://raflywithme.my.id/#person",
+          "name": "Muhammad Rafli",
+          "jobTitle": "Backend Developer",
+          "url": "https://raflywithme.my.id/",
+          "image": "https://raflywithme.my.id/images/avatar.png",
+          "sameAs": [
+            "https://github.com/raflywithme",
+            "https://www.linkedin.com/in/rexdzx",
+            "https://www.facebook.com/rexdzx"
+          ]
+        }
+      ]
+    }
+    </script>
 
     <style>
         :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
             --accent-color: #FF4D4D;
+            --secondary-text: #555;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+            --line-color: #eee;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --secondary-text: #94a3b8;
+            --nav-bg: rgba(15, 23, 42, 0.9);
+            --line-color: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-brand { font-weight: 700; text-decoration: none; color: var(--text-color); }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-color); 
+            font-size: 0.9rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 5px; 
+        }
+
+        .content-area {
+            padding: 60px 0;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+        }
+
+        .about-text strong {
+            color: var(--text-color);
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255, 77, 77, 0.2);
+        }
+
+        .highlight-box {
+            background: var(--line-color);
+            padding: 25px;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+            margin: 40px 0;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            border-top: 1px solid var(--line-color);
+        }
+
+        #theme-toggle { background: none; border: none; cursor: pointer; color: var(--text-color); }
+
+        @media (max-width: 600px) {
+            .page-title { font-size: 2rem; }
         }
     </style>
-
-    
-    
-    
-    
-    
-    
-
-    
-    <title>Tentang Saya</title>
-    <meta name="description" content="STUDENT OF SMK BIMA UTOMO BS">
-    <meta name="keywords" content='personal, gokarna, hugo, blog'>
-
-    <meta property="og:url" content="https://rexdzx.github.io/about/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Tentang Saya">
-    <meta property="og:description" content="STUDENT OF SMK BIMA UTOMO BS">
-    <meta property="og:image" content="/images/avatar.png">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tentang Saya">
-    <meta name="twitter:description" content="STUDENT OF SMK BIMA UTOMO BS">
-    <meta property="twitter:domain" content="https://rexdzx.github.io/about/">
-    <meta property="twitter:url" content="https://rexdzx.github.io/about/">
-    <meta name="twitter:image" content="/images/avatar.png">
-
-    
-    <link rel="canonical" href="https://rexdzx.github.io/about/" />
-
-    <link rel="stylesheet" type="text/css" href="https://rexdzx.github.io/css/normalize.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" type="text/css" href="https://rexdzx.github.io/css/main.css">
-    <link disabled id="dark-theme" rel="stylesheet" href="https://rexdzx.github.io/css/dark.css">
-
-    <script src="https://rexdzx.github.io/js/svg-injector.min.js"></script>
-    <script src="https://rexdzx.github.io/js/feather-icons.min.js"></script>
-    <script src="https://rexdzx.github.io/js/main.js"></script>
-
-    
-    
-        <!-- KaTeX -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          // customised options
-          // • auto-render specific keys, e.g.:
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-          ],
-          // • rendering keys, e.g.:
-          throwOnError : false
-        });
-      });
-    </script>
-  
-    
 </head>
 <body>
-        <script type="text/javascript">
-            
-            setThemeByUserPref();
-        </script><header class="header">
-    <nav class="header-nav">
 
-        
-        <div class="avatar">
-            <a href="https://rexdzx.github.io">
-                <img src="https://rexdzx.github.io/images/avatar.png" alt="avatar" />
-            </a>
-        </div>
-        
-
-        <div class="nav-title">
-            <a class="nav-brand" href="https://rexdzx.github.io">Muhammad Rafli</a>
-        </div>
-
-        <div class="nav-links">
-            
-            <div class="nav-link">
-                <a href="https://rexdzx.github.io/"><span data-feather='home'></span> Beranda </a>
+<header>
+    <div class="container">
+        <nav>
+            <a href="/" class="nav-brand">raflywithme.</a>
+            <div class="nav-links">
+                <a href="/"><i data-feather="home" style="width: 18px;"></i> Beranda</a>
+                <a href="/about/"><i data-feather="user" style="width: 18px;"></i> Tentang</a>
+                <button id="theme-toggle" onclick="toggleTheme()">
+                    <i id="theme-icon" data-feather="moon"></i>
+                </button>
             </div>
-            
-            <div class="nav-link">
-                <a href="https://rexdzx.github.io/about/"><span data-feather='user'></span> Tentang </a>
-            </div>
-            
-            <div class="nav-link">
-                <a href="https://github.com"><span data-feather='github'></span>  </a>
-            </div>
-            
-
-            <span class="nav-icons-divider"></span>
-            <div class="nav-link dark-theme-toggle">
-                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
-                <a>
-                    <span id="theme-toggle-icon" data-feather="moon"></span>
-                </a>
-            </div>
-
-            <div class="nav-link" id="hamburger-menu-toggle">
-                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
-                <a>
-                    <span data-feather="menu"></span>
-                </a>
-            </div>
-
-            
-            <ul class="nav-hamburger-list visibility-hidden">
-                
-                <li class="nav-item">
-                    <a href="https://rexdzx.github.io/"><span data-feather='home'></span> Beranda </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://rexdzx.github.io/about/"><span data-feather='user'></span> Tentang </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="https://github.com"><span data-feather='github'></span>  </a>
-                </li>
-                
-                <li class="nav-item dark-theme-toggle">
-                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
-                    <a>
-                        <span id="theme-toggle-icon" data-feather="moon"></span>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
+        </nav>
+    </div>
 </header>
-<main id="content">
-    
 
-    <div class="post container">
+<main class="container content-area">
+    <h1 class="page-title">Tentang Saya</h1>
 
-    <div class="post-header-section">
-        <h1>Tentang Saya</h1>
+    <div class="about-text">
+        <p>Halo! Nama saya <strong>Muhammad Rafli</strong>.</p>
+
+        <p>Saya adalah seorang individu yang memiliki antusiasme tinggi dalam dunia teknologi, khususnya dalam pengembangan perangkat lunak. Saat ini, saya sedang menempuh pendidikan di jurusan <strong>Rekayasa Perangkat Lunak (RPL)</strong> di <strong>SMK BIMA UTOMO BS</strong>, Batang Kuis.</p>
+
+        <div class="highlight-box">
+            "Perjalanan saya dimulai dari bilik warnet, dan kini saya berupaya membangun masa depan melalui baris-baris kode."
+        </div>
+
+        <p>Ketertarikan saya pada komputer berawal sejak masa Sekolah Dasar. Seperti kebanyakan anak pada masanya, saya menghabiskan banyak waktu mengeksplorasi dunia digital melalui game di warnet dekat rumah. Namun, rasa penasaran membawa saya lebih jauh dari sekadar pemain.</p>
+
+        <p>Pada kelas 9 MTs, saya mulai mengenal dunia pemrograman. Awalnya, mimpi saya adalah menjadi seorang <strong>Game Developer</strong>. Seiring berjalannya waktu dan proses belajar di SMK, fokus saya berkembang untuk mendalami arsitektur sistem dan menjadi seorang <strong>Backend Developer</strong> yang handal.</p>
+
+        <p>Bagi saya, pemrograman bukan sekadar menulis kode, tetapi tentang memecahkan masalah dan terus belajar untuk menjadi versi yang lebih baik dari hari kemarin.</p>
     </div>
+</main>
 
-    <div class="post-content">
-        <p>
-            <p>Halo! Nama saya <strong>Muhammad Rafli</strong></p>
-<p>Saya adalah manusia biasa seperti pada umumnya yang berkeinginan menjadi seorang Programmer.
-Saat ini saya berada di bangku SMK dengan jurusan Rekayasa Perangkat Lunak di salah satu sekolah yang berada di Kecamatan Batang Kuis yaitu <strong>SMK BIMA UTOMO BS</strong>.</p>
-<p>Saya tertarik dengan komputer sejak saya berada di Sekolah Dasar, pada saat itu setiap hari saya menghabiskan waktu untuk bermain game di komputer warnet di dekat rumah saya. Saya baru mengenal dunia pemrograman saat saya berada di kelas 9 MTs, awalnya saya ingin menjadi Game Developer saat awal saya mengenal pemrograman.</p>
-<p>Dan saat ini saya belajar untuk menjadi lebih baik dari sebelumnya.</p>
-
-        </p>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Muhammad Rafli • Terus Belajar, Terus Tumbuh.</p>
     </div>
-</div>
-
-
-
-
-        </main><footer class="footer">
-    <span>&copy; 2022 Muhammad Rafli</span>
-    <span>
-        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/526avijitgupta/gokarna">Gokarna</a>
-    </span>
 </footer>
+
+<script>
+    feather.replace();
+
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            icon.setAttribute('data-feather', 'moon');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            icon.setAttribute('data-feather', 'sun');
+        }
+        feather.replace();
+    }
+
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-icon').setAttribute('data-feather', 'sun');
+        feather.replace();
+    }
+</script>
+
 </body>
 </html>
