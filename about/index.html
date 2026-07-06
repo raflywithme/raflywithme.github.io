@@ -135,6 +135,7 @@
 
         .content-area {
             padding: 60px 0;
+            min-height: calc(100vh - 70px - 100px);
         }
 
         .page-title {
@@ -191,7 +192,79 @@
             color: var(--text-color);
         }
 
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-color);
+            padding: 6px;
+            border-radius: 6px;
+            transition: var(--transition);
+            z-index: 1100;
+            position: relative;
+        }
+
+        .hamburger-btn:hover {
+            color: var(--accent-color);
+        }
+
+        .hamburger-btn svg {
+            display: block;
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            fill: none;
+        }
+
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 999;
+        }
+
+        .nav-overlay.active {
+            display: block;
+        }
+
         @media (max-width: 600px) {
+            .hamburger-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 280px;
+                height: 100vh;
+                background: var(--nav-bg);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+                z-index: 1000;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+
             .page-title {
                 font-size: 2rem;
             }
@@ -205,7 +278,18 @@
         <div class="container">
             <nav>
                 <a class="nav-brand"></a>
-                <div class="nav-links">
+                <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <svg id="icon-menu" viewBox="0 0 24 24">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg id="icon-close" viewBox="0 0 24 24" style="display:none">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+                <div class="nav-links" id="nav-links">
                     <a href="/"><i data-feather="home" style="width: 18px;"></i> Beranda</a>
                     <a href="/about/"><i data-feather="user" style="width: 18px;"></i> Tentang</a>
                     <button id="theme-toggle" onclick="toggleTheme()">
@@ -213,6 +297,7 @@
                     </button>
                 </div>
             </nav>
+            <div class="nav-overlay" id="nav-overlay"></div>
         </div>
     </header>
 
@@ -220,29 +305,22 @@
         <h1 class="page-title">Tentang Saya</h1>
 
         <div class="about-text">
-            <p>Halo! Nama saya <strong>Muhammad Rafli</strong>.</p>
-
-            <p>Saya adalah seorang individu yang memiliki antusiasme tinggi dalam dunia teknologi, khususnya dalam
-                pengembangan perangkat lunak. Saat ini, saya sedang menempuh pendidikan di jurusan <strong>Rekayasa
-                    Perangkat Lunak (RPL)</strong> di <strong>SMK BIMA UTOMO BS</strong>, Batang Kuis.</p>
-
-            <p>Ketertarikan saya pada komputer berawal sejak masa Sekolah Dasar. Seperti kebanyakan anak pada masanya,
-                saya menghabiskan banyak waktu mengeksplorasi dunia digital melalui game di warnet dekat rumah. Namun,
-                rasa penasaran membawa saya lebih jauh dari sekadar pemain.</p>
-
-            <p>Pada kelas 9 MTs, saya mulai mengenal dunia pemrograman. Awalnya, mimpi saya adalah menjadi seorang
-                <strong>Game Developer</strong>. Seiring berjalannya waktu dan proses belajar di SMK, fokus saya
-                berkembang untuk mendalami arsitektur sistem dan menjadi seorang <strong>Backend Developer</strong>.
+            <p>Halo! Saya <strong>Muhammad Rafli</strong>, <strong>Backend Developer</strong> yang lagi kuliah
+                di prodi <strong>Teknologi Rekayasa Perangkat Lunak (TRPL)</strong> di <strong>Politeknik Negeri
+                    Medan</strong>.
             </p>
 
-            <p>Bagi saya, pemrograman bukan sekadar menulis kode, tetapi tentang memecahkan masalah dan terus belajar
-                untuk menjadi versi yang lebih baik dari hari kemarin.</p>
+            <p>Awal kenal komputer ya dari warnet kayak kebanyakan orang. Mulai dari ngegame, terus iseng ngulik,
+                sampai akhirnya makin penasaran dan coba bikin sesuatu sendiri. Dari situ belajar pemrograman
+                pelan-pelan, dan nggak berhenti sampai sekarang.</p>
+
+            <p>Dulu awalnya malah pengen jadi Game Developer. Tapi lama-kelamaan pindah haluan ke backend. Ternyata emang lebih sor aja ngulik di balik layar, apalagi kalau bisa bikin aplikasi yang tetep sustain dan lancar pas dipakai banyak orang.</p>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Muhammad Rafli</p>
+            <p>&copy; 2023 - <span id="year">2026</span> Muhammad Rafli</p>
         </div>
     </footer>
 
@@ -269,6 +347,48 @@
             document.getElementById('theme-icon').setAttribute('data-feather', 'sun');
             feather.replace();
         }
+
+        if (document.getElementById('year')) {
+            document.getElementById('year').textContent = new Date().getFullYear();
+        }
+
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navLinks = document.getElementById('nav-links');
+        const navOverlay = document.getElementById('nav-overlay');
+        const iconMenu = document.getElementById('icon-menu');
+        const iconClose = document.getElementById('icon-close');
+
+        function openMenu() {
+            navLinks.classList.add('open');
+            navOverlay.classList.add('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'true');
+            iconMenu.style.display = 'none';
+            iconClose.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            navLinks.classList.remove('open');
+            navOverlay.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            iconMenu.style.display = 'block';
+            iconClose.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        hamburgerBtn.addEventListener('click', () => {
+            if (navLinks.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        navOverlay.addEventListener('click', closeMenu);
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
     </script>
 
 </body>

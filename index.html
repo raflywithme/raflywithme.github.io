@@ -211,9 +211,77 @@
             color: var(--accent-color);
         }
 
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-color);
+            padding: 6px;
+            border-radius: 6px;
+            transition: var(--transition);
+            z-index: 1100;
+            position: relative;
+        }
+
+        .hamburger-btn:hover {
+            color: var(--accent-color);
+        }
+
+        .hamburger-btn svg {
+            display: block;
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            fill: none;
+        }
+
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 999;
+        }
+
+        .nav-overlay.active {
+            display: block;
+        }
+
         @media (max-width: 600px) {
+            .hamburger-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 280px;
+                height: 100vh;
+                background: var(--nav-bg);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+                z-index: 1000;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
             }
 
             .hero h1 {
@@ -229,7 +297,18 @@
         <div class="container">
             <nav>
                 <a class="nav-brand"></a>
-                <div class="nav-links">
+                <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <svg id="icon-menu" viewBox="0 0 24 24">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                    <svg id="icon-close" viewBox="0 0 24 24" style="display:none">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+                <div class="nav-links" id="nav-links">
                     <a href="https://raflywithme.my.id/"><i data-feather="home"></i> Beranda</a>
                     <a href="https://raflywithme.my.id/about/"><i data-feather="user"></i> Tentang</a>
                     <a href="https://github.com/raflywithme"><i data-feather="github"></i></a>
@@ -238,6 +317,7 @@
                     </button>
                 </div>
             </nav>
+            <div class="nav-overlay" id="nav-overlay"></div>
         </div>
     </header>
 
@@ -262,7 +342,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Muhammad Rafli</p>
+            <p>&copy; 2023 - <span id="year">2026</span> Muhammad Rafli</p>
         </div>
     </footer>
 
@@ -290,6 +370,48 @@
             document.getElementById('theme-icon').setAttribute('data-feather', 'sun');
             feather.replace();
         }
+
+        if (document.getElementById('year')) {
+            document.getElementById('year').textContent = new Date().getFullYear();
+        }
+
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navLinks = document.getElementById('nav-links');
+        const navOverlay = document.getElementById('nav-overlay');
+        const iconMenu = document.getElementById('icon-menu');
+        const iconClose = document.getElementById('icon-close');
+
+        function openMenu() {
+            navLinks.classList.add('open');
+            navOverlay.classList.add('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'true');
+            iconMenu.style.display = 'none';
+            iconClose.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            navLinks.classList.remove('open');
+            navOverlay.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            iconMenu.style.display = 'block';
+            iconClose.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        hamburgerBtn.addEventListener('click', () => {
+            if (navLinks.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        navOverlay.addEventListener('click', closeMenu);
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
     </script>
 
 </body>
